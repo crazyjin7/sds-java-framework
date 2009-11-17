@@ -8,7 +8,7 @@
 
 	<bean id="itMan" class="ch03.aop.pointcut.ItMan" >
 		<property name="life">
-			<ref bean="cityLifeProxy"/>
+			<ref bean="cityLife"/>
 		</property>
 	</bean>
 
@@ -26,12 +26,11 @@
 		</property>
 	</bean>
 
-	<bean id="cityLifeProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="target">
-			<ref bean="cityLife" />
-		</property>
-		<property name="proxyInterfaces">
-			<value>ch03.aop.pointcut.Life</value>
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>cityLife</value>
+			</list>
 		</property>
 		<property name="interceptorNames">
 			<list>
