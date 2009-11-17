@@ -19,6 +19,7 @@
 			<list>
 				<value>eat*</value>
 				<value>date</value>
+				<value>myLife</value>
 			</list>
 		</property>
 		<property name="advice">
