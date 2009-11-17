@@ -6,10 +6,12 @@
 
 	<bean id="dice" class="ch02.dice2.Dice4" />
 
-	<bean id="player" class="ch02.dice2.Player" >
-		<constructor-arg>
+	<!--<bean id="player" class="ch02.dice2.Player" >
+		<property name="dice">
 			<ref bean="dice" />
-		</constructor-arg>
-	</bean>
+		</property>
+	</bean>-->
+
+	<bean id="player" class="ch02.dice2.Player" autowire="byName" />
 
 </beans>
