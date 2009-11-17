@@ -9,13 +9,13 @@ import org.springframework.core.io.FileSystemResource;
 public class Test {
 	public static void main(String[] args) {
 		BeanFactory context
-			= new XmlBeanFactory(new FileSystemResource("build/classes/ch02/dice2/player.xml"));	
-		
+			= new XmlBeanFactory(new FileSystemResource("build/classes/ch02/dice2/player.xml"));
+
 		//ApplicationContext context
 			//= new ClassPathXmlApplicationContext("ch02/dice2/player.xml");
-		
+
 		System.out.println("컨테이너 생성 완료.");
-		
+
 		//Dice dice = new Dice4();
 		//Player p = new Player(dice);
 		Player p = (Player) context.getBean("player");
