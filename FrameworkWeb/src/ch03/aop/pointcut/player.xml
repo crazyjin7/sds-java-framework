@@ -14,21 +14,15 @@
 
 	<bean id="gargleAdvice" class="ch03.aop.pointcut.GargleAdvice" />
 
-	<bean id="garglePointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+	<bean id="gargleAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
 		<property name="mappedNames">
 			<list>
 				<value>eat*</value>
 				<value>date</value>
 			</list>
 		</property>
-	</bean>
-
-	<bean id="gargleAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
 		<property name="advice">
 			<ref bean="gargleAdvice" />
-		</property>
-		<property name="pointcut">
-			<ref bean="garglePointcut" />
 		</property>
 	</bean>
 
