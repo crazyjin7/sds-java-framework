@@ -13,6 +13,7 @@
 	</bean>
 
 	<bean id="beforeAdvice" class="ch03.aop.advice.DiceBeforeAdvice" />
+	<bean id="afterAdvice" class="ch03.aop.advice.DiceAfterAdvice" />
 
 	<bean id="dice" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target">
@@ -24,6 +25,7 @@
 		<property name="interceptorNames">
 			<list>
 				<value>beforeAdvice</value>
+				<value>afterAdvice</value>
 			</list>
 		</property>
 	</bean>
