@@ -8,8 +8,43 @@
 
 	<bean id="itMan" class="ch03.aop.pointcut.ItMan" >
 		<property name="life">
-			<ref bean="cityLife"/>
+			<ref bean="cityLifeProxy"/>
 		</property>
 	</bean>
+
+	<bean id="gargleAdvice" class="ch03.aop.pointcut.GargleAdvice" />
+
+	<bean id="garglePointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedNames">
+			<list>
+				<value>eatBreakfast</value>
+				<value>date</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="gargleAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice">
+			<ref bean="gargleAdvice" />
+		</property>
+		<property name="pointcut">
+			<ref bean="garglePointcut" />
+		</property>
+	</bean>
+
+	<bean id="cityLifeProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target">
+			<ref bean="cityLife" />
+		</property>
+		<property name="proxyInterfaces">
+			<value>ch03.aop.pointcut.Life</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>gargleAdvisor</value>
+			</list>
+		</property>
+	</bean>
+
 
 </beans>
