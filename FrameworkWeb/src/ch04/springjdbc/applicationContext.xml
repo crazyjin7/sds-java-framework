@@ -26,6 +26,15 @@
 		<property name="maxActive" value="${jdbc.maxActive}" />
 	</bean>
 
+	<bean id="magazine" class="ch04.springjdbc.MagazineDAO">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="magazineRowMapper">
+			<bean class="ch04.springjdbc.MagazineRowMapper" />
+		</property>
+	</bean>
+
 
 </beans>
 
