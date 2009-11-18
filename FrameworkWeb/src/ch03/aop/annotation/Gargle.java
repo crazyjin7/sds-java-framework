@@ -11,7 +11,7 @@ public class Gargle {
 	@After("execution(* CityLife.eat*())")
 	//@After("execution(String CityLife.eat*(String))")
 	//@After("execution(String CityLife.eat*(..))")
-	public void goGargle() throws Throwable {
+	public void doGargle() throws Throwable {
 		System.out.println("---> 양치한다.");
 
 	}
