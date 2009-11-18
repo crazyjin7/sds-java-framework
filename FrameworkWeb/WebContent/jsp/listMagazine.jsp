@@ -8,7 +8,7 @@
 <body>
 <h1>Magazine List</h1>
 
-<!-- url : http://localhost:8080/FrameworkWeb/listMagazine.htm (jsp 직접 호출하지 않음) -->
+<!-- url : http://localhost:8080/FrameworkWeb/listMagazine.htm (.jsp 직접 호출하지 않음) -->
 
 <ul>
 	<c:forEach items="${model.magazineList}" var="magazine">
