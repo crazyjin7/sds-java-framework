@@ -12,10 +12,22 @@
 
 	</bean>
 
+	<bean name="viewMagazine" class="ch05.magazine.controller.ConfirmMagazineController">
+		<property name="magazineService" ref="magazineService" />
+		<!-- get방식 요청때 보여줄 Form 화면의 이름 -->
+		<property name="formView" value="viewMagazine" />
+		<!-- post방식 요청처리가 성공했을 때 보여줄 화면 -->
+		<property name="successView" value="redirect:listMagazine.htm" />
+		<property name="commandClass" value="ch05.magazine.model.Magazine" />
+		<property name="commandName" value="Magazine" />
+
+	</bean>
+
 	<bean id="simpleUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
 				<prop key="/listMagazine.htm">listMagazine</prop>
+				<prop key="/viewMagazine.htm">viewMagazine</prop>
 			</props>
 		</property>
 	</bean>
