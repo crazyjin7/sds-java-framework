@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ch08.collection.list">
+
+	<class name="Parent">
+		<id name="name" type="string" />
+		<list name="children" cascade="all">
+			<key column="PARENT" />
+			<list-index column="LIST_INDEX" base="1" />
+			<one-to-many class="Child" />
+		</list>
+	</class>
+
+	<class name="Child">
+		<id name="name" type="string" />
+		<many-to-one name="p" column="PARENT" class="Parent" cascade="none" />
+	</class>
+
+</hibernate-mapping>
