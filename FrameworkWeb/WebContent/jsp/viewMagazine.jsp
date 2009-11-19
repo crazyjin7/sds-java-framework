@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=euc-kr"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
@@ -9,7 +9,7 @@
 <body>
 <h1>Magazine Insert</h1>
 
-<!-- ë„ë©”ì¸ ê°ì²´ ì‚¬ìš© -->
+<!-- µµ¸ŞÀÎ °´Ã¼ »ç¿ë -->
 <spring:nestedPath path="Magazine">
 	<form method="post">
 
