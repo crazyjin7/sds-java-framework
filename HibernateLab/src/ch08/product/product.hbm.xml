@@ -7,7 +7,7 @@
 
 	<class name="Product">
 		<id name="productId" type="string">
-			<generator class="sequence"></generator>
+			<generator class="native"></generator>
 		</id>
 		<property name="productName" not-null="true" length="20" />
 		<property name="description" not-null="true" length="200" />
