@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
+<hibernate-mapping package="ch07.member">
 
 	<class name="ch07.member.Member" table="TB_MEMBER">
 		<id name="memberId" column="ID">
