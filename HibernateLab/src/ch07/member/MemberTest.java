@@ -21,7 +21,7 @@ public class MemberTest {
 		System.out.println(mdao.getMember(1));
 
 		// »èÁ¦
-		mdao.deleteMember(1);
-		System.out.println(mdao.getMember(1));
+		//mdao.deleteMember(1);
+		//System.out.println(mdao.getMember(1));
 	}
 }

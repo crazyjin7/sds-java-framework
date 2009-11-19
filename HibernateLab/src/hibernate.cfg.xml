@@ -13,9 +13,21 @@
 		<property name="hibernate.connection.password">java61</property>
 		<property name="hibernate.connection.pool_size">1</property>
 
+		<property name="hiberbate.dialect">
+			org.hibernate.dialect.Oracle9Dialect
+		</property>
+
+		<property name="hibernate.transaction.factory_class">
+			org.hibernate.transaction.JDBCTransactionFactory
+		</property>
+
 		<property name="current_session_context_class">thread</property>
 
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
+
+		<property name="hibernate.show_sql">true</property>
+
+		<property name="hibernate.format_sql">true</property>
 
 		<mapping resource="ch07/member/member.hbm.xml" />
 
