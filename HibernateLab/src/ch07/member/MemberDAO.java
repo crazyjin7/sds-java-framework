@@ -21,4 +21,36 @@ public class MemberDAO {
 		session.getTransaction().commit();
 		session.close();
 	}
+
+	public Member getMember(long memberId) {
+		Session session = sessionFactory.openSession();
+
+		Member member = (Member) session.get(Member.class, memberId);
+
+		session.close();
+
+		return member;
+	}
+
+	public void updateMember(Member member) {
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		session.saveOrUpdate(member);
+
+		session.getTransaction().commit();
+		session.close();
+	}
+
+	public void deleteMember(long memberId) {
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		Member member = (Member) session.get(Member.class, memberId);
+
+		session.delete(member);
+
+		session.getTransaction().commit();
+		session.close();
+	}
 }
