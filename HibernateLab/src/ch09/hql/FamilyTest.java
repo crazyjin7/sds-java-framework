@@ -71,7 +71,7 @@ public class FamilyTest {
 
 		//runHql("select c.name, c.p.name from Child c where c.name='ÀÌ¹ÌÀÚ'");
 
-		runHql("from Parent p where p.children is empty");
+		runHql("from Parent p where size(p.children) > 1");
 
 
 
