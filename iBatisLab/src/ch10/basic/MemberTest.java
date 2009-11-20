@@ -1,4 +1,4 @@
-package ch10.first;
+package ch10.basic;
 
 import java.io.Reader;
 import java.util.List;
@@ -27,14 +27,26 @@ public class MemberTest {
 	}
 
 	public void memberList() throws Exception {
-		List list = sqlMapClient.queryForList("getMemberList");
+		List list = sqlMapClient.queryForList("Basic.getMemberList");
 		printList(list);
+	}
+
+	// parameterClass 사용 예
+	public void test01() throws Exception {
+		Member member = new Member();
+		member.setDeptNo(1);
+		member.setName("홍길동");
+		member.setAddr("Busan");
+		sqlMapClient.insert("Basic.insertMember", member);
+
+		memberList();
 	}
 
 	public static void main(String[] args) throws Exception {
 		MemberTest test = new MemberTest();
 		sqlMapClient = getSqlMapClient();
 
-		test.memberList();
+		//test.memberList();
+		test.test01();
 	}
 }

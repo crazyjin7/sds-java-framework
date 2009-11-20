@@ -4,7 +4,11 @@
 
 <sqlMapConfig>
 	<properties resource="jdbc.properties" />
-	<settings useStatementNamespaces="true" />
+	<settings
+		useStatementNamespaces="true"
+		maxRequests="32"
+		maxSessions="10"
+		maxTransactions="5" />
 	<transactionManager type="JDBC" commitRequired="true">
 		<dataSource type="SIMPLE">
 			<property name="JDBC.Driver" value="${jdbc.driverClassName}" />
@@ -14,5 +18,6 @@
 		</dataSource>
 	</transactionManager>
 	<sqlMap resource="ch10/first/sql-map-member.xml" />
+	<sqlMap resource="ch10/basic/sql-map-member.xml" />
 </sqlMapConfig>
 
