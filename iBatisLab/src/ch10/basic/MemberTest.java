@@ -42,11 +42,23 @@ public class MemberTest {
 		memberList();
 	}
 
+	// parameterMap 사용 예
+	public void test02() throws Exception {
+		Member member = new Member();
+		member.setDeptNo(1);
+		member.setName("임꺽정");
+		member.setAddr("Incheon");
+		sqlMapClient.insert("Basic.insertMemberByMap", member);
+
+		memberList();
+	}
+
 	public static void main(String[] args) throws Exception {
 		MemberTest test = new MemberTest();
 		sqlMapClient = getSqlMapClient();
 
 		//test.memberList();
-		test.test01();
+		//test.test01();
+		test.test02();
 	}
 }
