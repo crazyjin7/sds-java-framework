@@ -73,6 +73,13 @@ public class MemberTest {
 		System.out.println(member);
 	}
 
+	public void test05() throws Exception {
+		Map map = new HashMap();
+		map.put("addrs", new String[] {"Seoul", "Busan"});
+		List list = sqlMapClient.queryForList("Basic.getMemberListArray", map);
+		printList(list);
+	}
+
 	public static void main(String[] args) throws Exception {
 		MemberTest test = new MemberTest();
 		sqlMapClient = getSqlMapClient();
@@ -81,6 +88,7 @@ public class MemberTest {
 		//test.test01();
 		//test.test02();
 		//test.test03();
-		test.test04();
+		//test.test04();
+		test.test05();
 	}
 }

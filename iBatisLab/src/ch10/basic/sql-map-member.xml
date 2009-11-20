@@ -38,4 +38,13 @@
 		select id, name, dept_no, addr from member where id=#id#
 	</select>
 
+	<select id="getMemberListArray" parameterClass="hashmap" resultMap="memberResultMap">
+		select * from member
+		<dynamic prepend="where addr in">
+			<iterate property="addrs" open="(" close=")" conjunction=", ">
+				#addrs[]#
+			</iterate>
+		</dynamic>
+	</select>
+
 </sqlMap>
