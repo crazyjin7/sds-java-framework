@@ -29,9 +29,10 @@
 
 		<!--<property name="hibernate.format_sql">true</property>-->
 
-		<mapping resource="ch07/member/member.hbm.xml" />
-		<mapping resource="ch08/product/product.hbm.xml" />
-		<mapping resource="ch08/collection/list/family.hbm.xml" />
+		<!--<mapping resource="ch07/member/member.hbm.xml" />-->
+		<!--<mapping resource="ch08/product/product.hbm.xml" />-->
+		<!--<mapping resource="ch08/collection/list/family.hbm.xml" />-->
+		<mapping resource="ch09/hql/family.hbm.xml" />
 
 	</session-factory>
 
