@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean name="listMagazine" class="ch05.magazine.controller.ListMagazineController">
+		<property name="magazineService" ref="magazineService" />
+	</bean>
+	
+	<bean id="viewMagazine" class="ch05.magazine.controller.ConfirmMagazineController">
+		<property name="magazineService" ref="magazineService" />
+		<!-- get방식 요청때 보여줄 Form 화면의 이름 -->
+		<property name="formView" value="viewMagazine" />
+		<!-- post방식의 요청처리가 성공했을때 보여줄 화면 -->
+		<property name="successView" value="redirect:listMagazine.htm" />
+		<property name="commandClass" value="ch05.magazine.model.Magazine" />
+		<property name="commandName" value="Magazine" />
+		
+		
+	</bean>
+	
+	<!-- HandlerMapping 설정 -->
+	<bean id="simpleUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/listMagazine.htm">listMagazine</prop>
+				<prop key="/viewMagazine.htm">viewMagazine</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- ViewResolver 설정 -->
+	<bean id="viewResolver" 
+         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass">    <!-- 뷰 파일의 종류 -->
+		   <value>org.springframework.web.servlet.view.JstlView</value>
+		</property>
+	     <!-- 뷰 파일의 접두사 -->
+		<property name="prefix"><value>/jsp/</value></property>
+	     <!-- 뷰 파일의 접미사 -->
+		<property name="suffix"><value>.jsp</value></property>
+	</bean>
+	
+	
+
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

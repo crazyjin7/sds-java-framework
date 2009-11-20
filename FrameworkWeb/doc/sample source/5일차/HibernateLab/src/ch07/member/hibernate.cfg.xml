@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+ "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- connection pool 설정 -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@70.12.220.130:1521:ora9</property>
+		<property name="hibernate.connection.username">java90</property>
+		<property name="hibernate.connection.password">java90</property>
+		<property name="hibernate.connection.pool_size">1</property>
+
+		<property name="current_session_context_class">thread</property>
+
+		<property name="hbm2ddl.auto">update</property>
+
+		<!--
+		<property name="hibernate.show_sql">true</property>		 
+		<property name="hibernate.format_sql">true</property>
+		-->
+		
+		<mapping resource="ch07/member/member.hbm.xml" />
+		
+	</session-factory>
+
+</hibernate-configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

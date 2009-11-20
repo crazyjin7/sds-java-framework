@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ch09.hql">
+
+	<class name="Parent" table="TB_PARENT">
+		<id name="name" type="string" />
+		<property name="job" />
+		<list name="children" cascade="all">
+			<key column="PARENT" />
+			<list-index column="LIST_INDEX" base="1"/>
+			<one-to-many class="Child" />
+		</list>
+	</class>
+	
+	<class name="Child" table="TB_CHILD">
+		<id name="name" type="string" />
+		<property name="age" />
+		<many-to-one name="p" column="PARENT" class="Parent" cascade="none"/>
+	</class>
+
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
