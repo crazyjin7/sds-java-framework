@@ -1,6 +1,7 @@
 package ch10.basic;
 
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -53,12 +54,25 @@ public class MemberTest {
 		memberList();
 	}
 
+	// parameterClass로 Map 사용 예
+	public void test03() throws Exception {
+		Map map = new HashMap();
+		map.put("deptNo", 2);
+		map.put("name", "이순신");
+		map.put("addr", "Suwon");
+
+		sqlMapClient.insert("Basic.insertMember", map);
+
+		memberList();
+	}
+
 	public static void main(String[] args) throws Exception {
 		MemberTest test = new MemberTest();
 		sqlMapClient = getSqlMapClient();
 
 		//test.memberList();
 		//test.test01();
-		test.test02();
+		//test.test02();
+		test.test03();
 	}
 }

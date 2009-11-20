@@ -17,7 +17,7 @@
 		select * from member order by id desc
 	</select>
 
-	<insert id="insertMember" parameterClass="member">
+	<insert id="insertMember" parameterClass="hashmap">
 		insert into MEMBER(id, name, dept_no, addr)
 			values(member_id_seq.nextval, #name#, #deptNo#, #addr#)
 	</insert>
