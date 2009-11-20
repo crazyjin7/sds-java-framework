@@ -9,6 +9,9 @@ public class Parent {
 	private String job;
 	private List<Child> children = new ArrayList<Child>();
 
+	public Parent() {
+	}
+
 	public Parent(String name, String job) {
 		this.name = name;
 		this.job = job;

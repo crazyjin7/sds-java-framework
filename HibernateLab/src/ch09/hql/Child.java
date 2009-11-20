@@ -6,6 +6,9 @@ public class Child {
 	private int age;
 	private Parent p;
 
+	public Child() {
+	}
+
 	public Child(String name, int age) {
 		this.name = name;
 		this.age = age;

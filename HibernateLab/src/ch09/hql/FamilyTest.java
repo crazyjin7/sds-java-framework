@@ -1,14 +1,15 @@
 package ch09.hql;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.hibernate.Session;
 
 import common.util.HibernateUtil;
 
 public class FamilyTest {
 
-	public static void main(String[] args) {
-		HibernateUtil.beginTransaction();
-
+	public static void init() {
 		Session session = HibernateUtil.getCurrentSession();
 
 		Parent parent1 = new Parent("È«±æµ¿", "ÀÇÀû");
@@ -29,6 +30,26 @@ public class FamilyTest {
 		session.save(parent1);
 		session.save(parent2);
 		session.save(parent3);
+	}
+
+	public static void runHql(String hql) {
+		Session session = HibernateUtil.getCurrentSession();
+		List list = session.createQuery(hql).list();
+
+		Iterator it = list.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next());
+		}
+	}
+
+	public static void main(String[] args) {
+		HibernateUtil.beginTransaction();
+
+		Session session = HibernateUtil.getCurrentSession();
+
+		init();
+
+		runHql("from Parent p where p.name='È«±æµ¿'");
 
 		HibernateUtil.commitTransaction();
 		HibernateUtil.closeSession();
