@@ -67,7 +67,13 @@ public class FamilyTest {
 
 		//runHql("from Parent p where p.name='È«±æµ¿'");
 		//runHql2("from Parent p where p.name=?", "È«±æµ¿");
-		runHql2("from Parent p where p.name=:name", "È«±æµ¿");
+		//runHql2("from Parent p where p.name=:name", "È«±æµ¿");
+
+		//runHql("select c.name, c.p.name from Child c where c.name='ÀÌ¹ÌÀÚ'");
+
+		runHql("from Parent p where p.children is empty");
+
+
 
 		HibernateUtil.commitTransaction();
 		HibernateUtil.closeSession();
