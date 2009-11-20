@@ -3,6 +3,7 @@ package ch09.hql;
 import java.util.Iterator;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import common.util.HibernateUtil;
@@ -42,6 +43,21 @@ public class FamilyTest {
 		}
 	}
 
+	public static void runHql2(String hql, String name) {
+		Session session = HibernateUtil.getCurrentSession();
+		Query query = session.createQuery(hql);
+
+		//query.setString(0, name);
+		query.setString("name", name);
+
+		List list = query.list();
+
+		Iterator it = list.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next());
+		}
+	}
+
 	public static void main(String[] args) {
 		HibernateUtil.beginTransaction();
 
@@ -49,7 +65,9 @@ public class FamilyTest {
 
 		init();
 
-		runHql("from Parent p where p.name='ȫ�浿'");
+		//runHql("from Parent p where p.name='ȫ�浿'");
+		//runHql2("from Parent p where p.name=?", "ȫ�浿");
+		runHql2("from Parent p where p.name=:name", "ȫ�浿");
 
 		HibernateUtil.commitTransaction();
 		HibernateUtil.closeSession();
