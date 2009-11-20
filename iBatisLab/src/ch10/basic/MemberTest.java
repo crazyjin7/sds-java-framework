@@ -66,6 +66,13 @@ public class MemberTest {
 		memberList();
 	}
 
+	// ResultMap »ç¿ë ¿¹
+	public void test04() throws Exception {
+		Member member = (Member) sqlMapClient.queryForObject("Basic.getMemberListResultMap", new Integer(1));
+
+		System.out.println(member);
+	}
+
 	public static void main(String[] args) throws Exception {
 		MemberTest test = new MemberTest();
 		sqlMapClient = getSqlMapClient();
@@ -73,6 +80,7 @@ public class MemberTest {
 		//test.memberList();
 		//test.test01();
 		//test.test02();
-		test.test03();
+		//test.test03();
+		test.test04();
 	}
 }
